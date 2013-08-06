@@ -1,6 +1,6 @@
 {
-	"run_list":[
-		"java",
-		"jenkins"
-	]
+        "run_list":[
+                "role[jenkins]"
+        ]
 }
+
