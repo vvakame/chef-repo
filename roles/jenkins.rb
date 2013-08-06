@@ -15,7 +15,7 @@ override_attributes "jenkins" => {
 	"iptables_allow" => "enable",
 	"server" => {
 		"plugins" => [
-			"git"
+			"credentials", "ssh-credentials", "git-client", "git" # git and git dependencies
 		]
 	}
 }
