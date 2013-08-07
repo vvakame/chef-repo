@@ -5,3 +5,5 @@ cookbook 'jenkins', git: 'https://github.com/opscode-cookbooks/jenkins.git', ref
 
 cookbook 'iptables'
 
+cookbook 'npm'
+
