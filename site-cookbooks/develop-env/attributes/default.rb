@@ -1,3 +1,6 @@
+default['develop-env']['git']['user.name'] = ""
+default['develop-env']['git']['user.email'] = ""
+
 include_attribute "nodejs"
 include_attribute "npm"
 
