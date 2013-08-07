@@ -14,31 +14,8 @@
 if node['review']['pdf']
 	case node['platform_family']
 	when "rhel"
-		include_recipe "yum::epel"
+		include_recipe "texlive2013"
 
-		yum_package "texlive-latex" do
-			action :install
-		end
-
-		yum_package "texlive-east-asian" do
-			action :install
-		end
-
-		yum_package "xdvik" do
-			action :install
-		end
-
-		yum_package "dvipdfmx" do
-			action :install
-		end
-
-		yum_package "ipa-mincho-fonts" do
-			action :install
-		end
-
-		yum_package "ipa-gothic-fonts" do
-			action :install
-		end
 	when "debian"
 		# not tested
 		# https://text-n.appspot.com/#/html/aghzfnRleHQtbnIMCxIEVGV4dBiZ4wYM
