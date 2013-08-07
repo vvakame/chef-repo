@@ -1,6 +1,10 @@
 {
-        "run_list":[
-                "role[jenkins]"
-        ]
+	"review": {
+		"pdf": true
+	},
+	"run_list":[
+		"role[jenkins]",
+		"recipe[review]"
+	]
 }
 
