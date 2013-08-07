@@ -1,0 +1,14 @@
+{
+	"review": {
+		"pdf": true
+	},
+	"develop-env": {
+		"git": {
+			"user.name": "vvakame",
+			"user.email": "vvakame@gmail.com"
+		}
+	},
+	"run_list":[
+		"role[review-jenkins]"
+	]
+}
