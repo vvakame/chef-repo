@@ -4,11 +4,17 @@
 #
 # Copyright 2013, vvakame
 #
-# All rights reserved - Do Not Redistribute
+# MIT license
 #
 
 # tlmgr が存在していれば既にインストール済みでいいと思うなー
-if ::File.exist?("/usr/local/texlive/2013/bin/x86_64-linux/tlmgr")
+arch = "x86_64" # TODO install-tl のこの部分の取得ロジックがよくわからない…
+unless node['kernel']['machine'] =~ /x86_64/
+	Chef::Application.fatal!("Unknown platform type #{kernel['machine']}!")
+end
+bin_path = "#{node['texlive2013']['texdir']}/bin/#{arch}-linux"
+
+if ::File.exist?("#{bin_path}/tlmgr")
 	Chef::Log.info('texlive2013 already installed.')
 else
 	# wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
@@ -29,6 +35,7 @@ else
 		source 'texlive.profile.erb'
 		mode 00644
 		variables(
+			:texdir => node['texlive2013']['texdir']
 		)
 	end
 
@@ -52,6 +59,9 @@ else
 	template "/etc/profile.d/texlive.sh" do
 		source 'texlive.sh.erb'
 		owner "root"
+		variables(
+			:bin_path => bin_path
+		)
 		mode 00755
 	end
 end
