@@ -1,6 +1,6 @@
 {
 	"review": {
-		"pdf": false,
+		"pdf": true,
 		"jenkins": {
 			"sample": true
 		}

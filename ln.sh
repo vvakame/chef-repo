@@ -1,4 +1,3 @@
 #! /bin/bash
-mkdir ~/.chef
-ln -s ~/Dropbox/chef-repo/sample/knife.rb ~/.chef
-
+mkdir -p ~/.chef
+ln -s ${PWD}/sample/knife.rb ~/.chef
