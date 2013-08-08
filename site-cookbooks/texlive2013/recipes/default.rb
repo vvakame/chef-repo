@@ -13,9 +13,11 @@ if ::File.exist?("/usr/local/texlive/2013/bin/x86_64-linux/tlmgr")
 else
 	# wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 	src_filepath = "#{Chef::Config['file_cache_path']}/install-tl-unx.tar.gz"
+	repository = node['texlive2013']['repository']
+
 	remote_file "install-tl-unx.tar.gz" do
 		# source "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-		source "http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/install-tl-unx.tar.gz"
+		source "#{repository}/install-tl-unx.tar.gz"
 		# checksum "" # TODO
 		mode 00644
 		path src_filepath
@@ -42,7 +44,7 @@ else
 		code <<-EOH
 		tar zxvf install-tl-unx.tar.gz
 		cd install-tl-*
-		./install-tl --profile=#{Chef::Config['file_cache_path']}/texlive.profile
+		./install-tl --profile=#{Chef::Config['file_cache_path']}/texlive.profile -repository #{repository}
 		EOH
 	end
 

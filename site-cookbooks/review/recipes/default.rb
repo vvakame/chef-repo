@@ -20,6 +20,7 @@ if node['review']['pdf']
 		# not tested
 		# https://text-n.appspot.com/#/html/aghzfnRleHQtbnIMCxIEVGV4dBiZ4wYM
 		# texlive-lang-cjk が デフォであるのUbuntuだけっぽい
+		# Debianも7系からはあるらしい
 		apt_package "texlive-lang-cjk" do
 			action :install
 		end
