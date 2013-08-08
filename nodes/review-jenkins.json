@@ -1,6 +1,9 @@
 {
 	"review": {
-		"pdf": true
+		"pdf": false,
+		"jenkins": {
+			"sample": true
+		}
 	},
 	"develop-env": {
 		"git": {
