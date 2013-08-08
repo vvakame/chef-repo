@@ -4,7 +4,7 @@ include_attribute "jenkins"
 # too heavy on platform_family eq rhel
 default['review']['pdf'] = false
 
-# add jenkins tasks
+# add jenkins sample job
 default['review']['jenkins']['sample'] = false
 default['review']['jenkins']['job']['name'] = "ReVIEW-sample-book"
 default['review']['jenkins']['job']['git']['repository'] = "https://github.com/takahashim/review-sample-book.git"

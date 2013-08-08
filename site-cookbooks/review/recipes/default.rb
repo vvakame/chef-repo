@@ -4,11 +4,10 @@
 #
 # Copyright 2013, vvakame
 #
-# All rights reserved - Do Not Redistribute
+# MIT license
 #
 
 # testing on only CentOS 6.4
-# currently under testing
 
 # for platex
 if node['review']['pdf']
@@ -39,6 +38,7 @@ end
 
 # jenkins job setup
 if node['review']['jenkins']['sample']
+
 	job_name = "#{node['review']['jenkins']['job']['name']}"
 	git_repository = "#{node['review']['jenkins']['job']['git']['repository']}"
 	git_branch = "#{node['review']['jenkins']['job']['git']['branch']}"
