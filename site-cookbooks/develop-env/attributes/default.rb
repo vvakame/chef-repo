@@ -1,6 +1,10 @@
 default['develop-env']['git']['user.name'] = ""
 default['develop-env']['git']['user.email'] = ""
 
+default['develop-env']['grunt-cli']['version']	= "0.1.9"
+default['develop-env']['typescript']['version']	= "0.9.1"
+
+
 include_attribute "nodejs"
 include_attribute "npm"
 

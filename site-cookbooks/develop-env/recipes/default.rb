@@ -4,7 +4,7 @@
 #
 # Copyright 2013, vvakame
 #
-# All rights reserved - Do Not Redistribute
+# MIT license
 #
 
 # install git & setup
@@ -19,6 +19,7 @@ if node['develop-env']['git']['user.email'] == ""
 	raise "required node['develop-env']['git']['user.email']" # TODO 失敗させかたこれで正しいのか謎
 end
 
+# for Jenkins jobs
 template "#{node['jenkins']['server']['home']}/.gitconfig" do
 	source '.gitconfig.erb'
 	owner node['jenkins']['server']['group']
@@ -31,16 +32,17 @@ template "#{node['jenkins']['server']['home']}/.gitconfig" do
 end
 
 # npm setup
-def npm_missing?
-	! run_context.loaded_recipe?("npm")
-end
-
-if npm_missing?
+unless run_context.loaded_recipe?("npm")
 	Chef::Log.error("npm cookbook is missing. Please add to the run_list.")
 	raise "required npm" # TODO 失敗させかたこれで正しいのか謎
 end
 
 npm_package "grunt-cli" do
-	version "0.1.9"
+	version node['develop-env']['grunt-cli']['version']
 	action :install
-end 
+end
+
+npm_package "typescript" do
+	version node['develop-env']['typescript']['version']
+	action :install
+end
