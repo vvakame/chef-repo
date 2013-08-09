@@ -16,11 +16,7 @@ if node['review']['pdf']
 		include_recipe "texlive2013"
 
 	when "debian"
-		# not tested
-		# https://text-n.appspot.com/#/html/aghzfnRleHQtbnIMCxIEVGV4dBiZ4wYM
-		# texlive-lang-cjk が デフォであるのUbuntuだけっぽい
-		# Debianも7系からはあるらしい
-		apt_package "texlive-lang-cjk" do
+		package "texlive-lang-cjk" do
 			action :install
 		end
 	end
@@ -55,8 +51,8 @@ if node['review']['jenkins']['sample']
 
 	template job_config do
 		source "jenkins-config-review.xml.erb"
-		owner node['jenkins']['server']['group']
-		group node['jenkins']['server']['user']
+		group node['jenkins']['server']['group']
+		owner node['jenkins']['server']['user']
 		mode 00644
 		variables(
 			:git_repository => git_repository,

@@ -22,8 +22,8 @@ end
 # for Jenkins jobs
 template "#{node['jenkins']['server']['home']}/.gitconfig" do
 	source '.gitconfig.erb'
-	owner node['jenkins']['server']['group']
-	group node['jenkins']['server']['user']
+	group node['jenkins']['server']['group']
+	owner node['jenkins']['server']['user']
 	mode 00644
 	variables(
 		:name  => node['develop-env']['git']['user.name'],
