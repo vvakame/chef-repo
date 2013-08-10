@@ -1,4 +1,5 @@
 name "review-jenkins"
 description "jenkins server for ReVIEW"
 
-run_list "recipe[npm]", "role[jenkins]", "recipe[develop-env]", "recipe[review]"
+# メモ recipe[review]でのJenkinsのReVIEWタスク投入にgitが必要 gitはrecipe[develop-env]でインストールされる
+run_list "role[jenkins]", "recipe[npm]", "recipe[develop-env]", "recipe[review]"
